@@ -3,3 +3,6 @@ dist/
 *.exe
 *.DS_Store
 go.sum
+build/bin
+node_modules
+frontend/dist

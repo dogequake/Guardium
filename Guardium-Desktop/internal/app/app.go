@@ -1,15 +1,29 @@
 package app
 
 import (
-	"fyne.io/fyne/v2/app"
-	"github.com/dogequake/guardium-desktop/internal/ui"
+	"context"
+	"fmt"
 )
 
-// Start инициализирует и запускает десктопное приложение
-func Start() {
-	// Создаем новое приложение Fyne
-	myApp := app.New()
+// App struct
+type App struct {
+	ctx context.Context
+}
 
-	// Показываем главное окно из пакета ui
-	ui.ShowMainWindow(myApp)
+// NewApp creates a new App application struct
+func NewApp() *App {
+	return &App{}
+}
+
+// startup is called when the app starts. The context is saved
+// so we can call the runtime methods
+// В файле internal/app/app.go
+
+func (a *App) Startup(ctx context.Context) {
+	a.ctx = ctx
+}
+
+// Greet returns a greeting for the given name
+func (a *App) Greet(name string) string {
+	return fmt.Sprintf("Hello %s, It's show time!", name)
 }

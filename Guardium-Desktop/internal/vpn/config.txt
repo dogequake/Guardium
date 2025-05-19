@@ -1,0 +1,10 @@
+[Interface]
+PrivateKey = <PRIVATE_KEY_КЛИЕНТА>
+Address = 10.200.200.4./32
+DNS = 1.1.1.1, 8.8.8.8
+
+[Peer]
+PublicKey = HR0lN7MIwZqn251DlaIdmIMPqCKHw1vN+N0gZcF40QQ=
+Endpoint = 147.45.187.208:443
+AllowedIPs = 0.0.0.0/0, ::/0
+PersistentKeepalive = 25
