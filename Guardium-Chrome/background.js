@@ -59,6 +59,11 @@ async function setProxy(proxyServer) {
     }
   }
   
+  chrome.runtime.onInstalled.addListener(() => {
+    chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+  });
+
+
   // Обработчик сообщений между частями расширения
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     // Если запрос на установку прокси

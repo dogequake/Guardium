@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guardium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="gradient-header">
+    <div class="header-text">
+      <div class="line1">Russia · 193.168.177.66</div>
+      <div class="line2">not connected</div>
+    </div>
+  </div>
+
+
+  <div class="center-button-container">
+    <button class="connect-button">Connect</button>
+  </div>
+
+  <div class="bottom-nav">
+    <button>
+      <img src="icons/Home.svg" alt="Home" class="icon" />
+      Home
+    </button>
+    <button data-href="settings.html">
+      <img src="icons/Settings.svg" alt="Settings" class="icon" />
+      Settings
+    </button>
+    <button>
+      <img src="icons/Logs.svg" alt="Logs" class="icon" />
+      Logs
+    </button>
+    <button>
+      <img src="icons/Profile.svg" alt="Profile" class="icon" />
+      Profile
+    </button>
+  </div>
+
+<script>
+  document.querySelectorAll('.bottom-nav button').forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      const href = button.getAttribute('onclick').match(/'([^']+)'/)[1]; // вытаскиваем путь из onclick
+
+      // Добавляем класс для анимации
+      document.body.classList.add('fade-out');
+
+      // Ждём 500мс (длина анимации) и переключаем страницу
+      setTimeout(() => {
+        location.href = href;
+      }, 500);
+    });
+  });
+</script>
+
+</body>
+</html>

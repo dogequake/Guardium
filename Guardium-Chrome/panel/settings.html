@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="settings-container">
+    <h1 class="title">Settings</h1>
+
+    <section class="usage-stats">
+      <h2>Usage Statistics</h2>
+      <div class="week-bar">
+        <div class="day filled">Mon</div>
+        <div class="day filled">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day filled">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+        <div class="day filled">Sun</div>
+      </div>
+    </section>
+
+    <section class="functions">
+      <h2>Functions</h2>
+      <ol>
+        <li>NetShield</li>
+        <li>Split tunneling</li>
+      </ol>
+    </section>
+
+    <section class="connection">
+      <h2>Connection</h2>
+      <ol>
+        <li>Protocol</li>
+        <li>Custom DNS</li>
+      </ol>
+    </section>
+
+    <div class="version-info">
+      Version app: <span id="version">loading...</span>
+    </div>
+  </div>
+
+  <script>
+    // Получаем версию из манифеста и вставляем в span
+    chrome.runtime.getManifest && (() => {
+      const version = chrome.runtime.getManifest().version;
+      document.getElementById('version').textContent = version;
+    })();
+  </script>
+</body>
+</html>
